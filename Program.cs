@@ -1,77 +1,56 @@
-﻿/*
-Задача №2
+/*
+Задача №10
 
-Console.WriteLine ("Введите 1 число");
-int numder_1 = Convert.ToInt32(Console.ReadLine());
-Console.WriteLine ("Введите 2 число");
-int numder_2 = Convert.ToInt32(Console.ReadLine());
-if(numder_1>numder_2)
-{
-    Console.WriteLine("Наибольшее число");
-    Console.WriteLine(numder_1);
-}
-else
-{
-  Console.WriteLine("Наибольшее число");
-  Console.WriteLine(numder_2);
-}
-*/
-
-/*Задача 4
-
-Console.WriteLine ("Введите 1 число");
-int numder_1 = Convert.ToInt32(Console.ReadLine());
-Console.WriteLine ("Введите 2 число");
-int numder_2 = Convert.ToInt32(Console.ReadLine());
-Console.WriteLine ("Введите 3 число");
-int numder_3 = Convert.ToInt32(Console.ReadLine());
-
-if(numder_1>numder_2 & numder_1>numder_3)
-{
-    Console.WriteLine("Наибольшее число");
-    Console.WriteLine(numder_1);
-}
-
-if(numder_2>numder_1 & numder_2>numder_3)
-{
-    Console.WriteLine("Наибольшее число");
-    Console.WriteLine(numder_2);
-}
-else
-{
-  Console.WriteLine("Наибольшее число");
-  Console.WriteLine(numder_3);
-}
-*/
-
-/*Задача №6
-
-Console.WriteLine ("Введите число");
+Console.WriteLine("Введите трёхзначное число");
 int number_1 = Convert.ToInt32(Console.ReadLine());
-int number_2 =number_1%2;
+int number_2 = (number_1%100)/10;
 
-if (number_2>0)
-{
-    Console.WriteLine("Число нечетное");
-}
-else
-{
-   Console.WriteLine("Число четное"); 
-}
+Console.WriteLine(number_2);
 */
-/*Задача №8
 
-Console.WriteLine ("Введите число");
+ /*
+ Задача №13
+
+ Console.WriteLine("Введите число");
 int number_1 = Convert.ToInt32(Console.ReadLine());
-int Num_2 =0;
-while (Num_2<number_1)
-if (Num_2+2<number_1)
+int number_2 = 0;
+
+if (number_1<100)
 {
-    Num_2+=2;
-    Console.Write(Num_2);
+   Console.WriteLine("Третьей цыфры нет");
 }
-else
+if (number_1<1000 & number_1>100)
 {
- Num_2+=2;   
+   number_2 = number_1%100%10;
+   Console.WriteLine(number_2);
+}
+if (number_1<10000 & number_1>1000)
+{
+   number_2 = ((number_1%1000)%100/10);
+   Console.WriteLine(number_2);
+}
+ if (number_1<100000 & number_1>10000)
+{
+   number_2 = ((number_1%10000)%1000/100);
+   Console.WriteLine(number_2);
 }
 */
+
+/*Задача №15
+
+Console.WriteLine("Введите число");
+int number_1 = Convert.ToInt32(Console.ReadLine());
+
+if (number_1==6 || number_1==7)
+{
+   Console.WriteLine("Да, день выходной");
+}
+if (number_1<6 & number_1>0)
+{
+   Console.WriteLine("Нет, работайте господа");
+}
+if (number_1<=0 || number_1>7)
+{
+   Console.WriteLine("Такого дня недели нет!");
+}
+ */
