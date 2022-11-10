@@ -1,0 +1,15 @@
+C:\Users\taru8\OneDrive\Рабочий стол\С#\Prasw\obj\Debug\net6.0\Prasw.csproj.AssemblyReference.cache
+C:\Users\taru8\OneDrive\Рабочий стол\С#\Prasw\obj\Debug\net6.0\Prasw.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\taru8\OneDrive\Рабочий стол\С#\Prasw\obj\Debug\net6.0\Prasw.AssemblyInfoInputs.cache
+C:\Users\taru8\OneDrive\Рабочий стол\С#\Prasw\obj\Debug\net6.0\Prasw.AssemblyInfo.cs
+C:\Users\taru8\OneDrive\Рабочий стол\С#\Prasw\obj\Debug\net6.0\Prasw.csproj.CoreCompileInputs.cache
+C:\Users\taru8\OneDrive\Рабочий стол\С#\Prasw\bin\Debug\net6.0\Prasw.exe
+C:\Users\taru8\OneDrive\Рабочий стол\С#\Prasw\bin\Debug\net6.0\Prasw.deps.json
+C:\Users\taru8\OneDrive\Рабочий стол\С#\Prasw\bin\Debug\net6.0\Prasw.runtimeconfig.json
+C:\Users\taru8\OneDrive\Рабочий стол\С#\Prasw\bin\Debug\net6.0\Prasw.dll
+C:\Users\taru8\OneDrive\Рабочий стол\С#\Prasw\bin\Debug\net6.0\Prasw.pdb
+C:\Users\taru8\OneDrive\Рабочий стол\С#\Prasw\obj\Debug\net6.0\Prasw.dll
+C:\Users\taru8\OneDrive\Рабочий стол\С#\Prasw\obj\Debug\net6.0\refint\Prasw.dll
+C:\Users\taru8\OneDrive\Рабочий стол\С#\Prasw\obj\Debug\net6.0\Prasw.pdb
+C:\Users\taru8\OneDrive\Рабочий стол\С#\Prasw\obj\Debug\net6.0\Prasw.genruntimeconfig.cache
+C:\Users\taru8\OneDrive\Рабочий стол\С#\Prasw\obj\Debug\net6.0\ref\Prasw.dll
