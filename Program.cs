@@ -1,59 +1,76 @@
 ﻿/*
+Задача №34
 
-Задача №19
+int count=0;
+int [] array =  new int[3];
 
-Console.WriteLine("Введите число");
-int num = int.Parse(Console.ReadLine());
-int num2 = num;
-int big = 0;
-int rev = 0;
-
-while (num > 0)
+for (int i =0; i<array.Length; i++)
 {
-    big = num % 10;
-    rev = rev * 10 + big;
-    num = (num / 10);
+  
+  array[i] = new Random().Next(100,1000);
+  Console.WriteLine(array[i]);
+  if (i%2<=0)
+  {
+  count++;
+  } 
 }
-if (num2==rev)
-{
-    Console.WriteLine("Число является полиндромом");
-}
-else
-{
-   Console.WriteLine("Число не является полиндромом"); 
-}
+Console.WriteLine(count);
 */
- /*
-  Задача №21
- Console.WriteLine("Введите координаты X1");
-int X1 = int.Parse(Console.ReadLine());
 
-Console.WriteLine("Введите координаты Y1");
-int Y1 = int.Parse(Console.ReadLine());
+/*
+Задача 36
 
-Console.WriteLine("Введите координаты Z1");
-int Z1 = int.Parse(Console.ReadLine());
 
-Console.WriteLine("Введите координаты X2");
-int X2 = int.Parse(Console.ReadLine());
+Console.WriteLine(" Введите количество чисел в массиве");
+int num = Convert.ToInt32(Console.ReadLine());
 
-Console.WriteLine("Введите координаты Y2");
-int Y2 = int.Parse(Console.ReadLine());
+int summa =0;
+int[] array = Method(num);
+int[] Method (int num)
+{
+  int[] array = new int[num];
 
-Console.WriteLine("Введите координаты Z2");
-int Z2 = int.Parse(Console.ReadLine());
-
-double D = Math.Sqrt(Math.Pow(X2-X1, 2)+Math.Pow(Y2-Y1, 2)+Math.Pow(Z2-Z1,2));
-Console.WriteLine($"Расстояние между двумя точками в пространстве равно {D}");
+  for (int i=0; i<num; i++)
+  {
+    array[i]=new Random().Next(-100,100);
+    int element = array[i];
+    if (i%2 !=0)
+    {
+      summa = summa +element;
+    }
+  }
+  return array;
+}
+Console.WriteLine(String.Join(",",array));
+Console.WriteLine($"Сумма элементов на нечётных позициях :{summa}");
 */
 /*
-Задача №23
-Console.WriteLine("Введите число");
-int num = int.Parse(Console.ReadLine());
+Задача №38
 
-for(int i=1;i<=num;i++)
+Console.WriteLine(" Введите количество чисел в массиве");
+int num = Convert.ToInt32(Console.ReadLine());
+
+int[] array = Method2(num);
+int[] Method2 (int num)
 {
-  double num2 = Math.Pow(i,3);
-  Console.WriteLine(num2);
+  int[] array = new int[num];
+  for (int i=0; i<num; i++)
+  {
+    array[i] = new Random().Next(-100,100);
+  }
+  return array;
 }
+Console.WriteLine(String.Join(",",array));
+
+int max = array[0];
+int min = array[0];
+for(int i=0; i<num; i++)
+{
+  if (array[i] > max)
+  max = array[i];
+   if (array[i] < min)
+  min = array[i];
+}
+
+Console.WriteLine($"Вывод:{max - min}");
 */
