@@ -1,76 +1,45 @@
 ﻿/*
-Задача №34
+Задача №41
+Console.WriteLine("Введите числа(через пробел):");
+int [] arr = Array.ConvertAll(Console.ReadLine().Split(),int.Parse);
 
-int count=0;
-int [] array =  new int[3];
+int count = 0;
 
-for (int i =0; i<array.Length; i++)
+for (int i =0; i < arr.Length; i++)
 {
-  
-  array[i] = new Random().Next(100,1000);
-  Console.WriteLine(array[i]);
-  if (i%2<=0)
+  if (arr[i]>0)
   {
-  count++;
-  } 
-}
-Console.WriteLine(count);
-*/
-
-/*
-Задача 36
-
-
-Console.WriteLine(" Введите количество чисел в массиве");
-int num = Convert.ToInt32(Console.ReadLine());
-
-int summa =0;
-int[] array = Method(num);
-int[] Method (int num)
-{
-  int[] array = new int[num];
-
-  for (int i=0; i<num; i++)
-  {
-    array[i]=new Random().Next(-100,100);
-    int element = array[i];
-    if (i%2 !=0)
-    {
-      summa = summa +element;
-    }
+    count++;
   }
-  return array;
+
 }
-Console.WriteLine(String.Join(",",array));
-Console.WriteLine($"Сумма элементов на нечётных позициях :{summa}");
-*/
-/*
-Задача №38
+ Console.WriteLine($"Вы ввели числе >0: {count}");
 
-Console.WriteLine(" Введите количество чисел в массиве");
-int num = Convert.ToInt32(Console.ReadLine());
 
-int[] array = Method2(num);
-int[] Method2 (int num)
+Задача №43 
+
+Console.WriteLine("Введите k1");
+double k1 =Convert.ToDouble(Console.ReadLine());
+
+Console.WriteLine("Введите b1");
+double b1 =Convert.ToDouble(Console.ReadLine());
+
+Console.WriteLine("Введите k2");
+double k2 =Convert.ToDouble(Console.ReadLine());
+
+Console.WriteLine("Введите b2");
+double b2 =Convert.ToDouble(Console.ReadLine());
+
+if(k1==k2)
 {
-  int[] array = new int[num];
-  for (int i=0; i<num; i++)
-  {
-    array[i] = new Random().Next(-100,100);
-  }
-  return array;
+  Console.WriteLine("||");
 }
-Console.WriteLine(String.Join(",",array));
-
-int max = array[0];
-int min = array[0];
-for(int i=0; i<num; i++)
+else
 {
-  if (array[i] > max)
-  max = array[i];
-   if (array[i] < min)
-  min = array[i];
-}
+  double x = (b2-b1)/(k1-k2);
+  double y = k1*x+b1;
 
-Console.WriteLine($"Вывод:{max - min}");
+  Console.WriteLine($"Точка пересечения:({x}; {y}");
+}
 */
+
