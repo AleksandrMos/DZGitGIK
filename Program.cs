@@ -1,83 +1,333 @@
-﻿
+﻿//Задача 54
+
 /*
-// Задача 64
 
-int n = InputNumbers("Введите n: ");
-int count = 2;
-PrintNumber(n, count);
-
-
-void PrintNumber(int n, int count)
-{
-  if (count > n) return;
-  PrintNumber(n, count + 1);
-  Console.Write(count + ", ");
-}
-
-int InputNumbers(string input) 
-{
-  Console.Write(input);
-  int output = Convert.ToInt32(Console.ReadLine());
-  return output;
-}
-
-
-// Задача 66
-
-
+Console.WriteLine("Введите размер массива m x n и диапазон случайных значений:");
 int m = InputNumbers("Введите m: ");
 int n = InputNumbers("Введите n: ");
-int temp = m;
+int range = InputNumbers("Введите диапазон: от 1 до ");
 
-if (m > n) 
+int[,] array = new int[m, n];
+CreateArray(array);
+WriteArray(array);
+
+Console.WriteLine($"\nОтсортированный массив: ");
+OrderArrayLines(array);
+WriteArray(array);
+
+void OrderArrayLines(int[,] array)
 {
-  m = n; 
-  n = temp;
-}
-
-PrintSumm(m, n, temp=0);
-
-void PrintSumm(int m, int n, int summ)
-{
-  summ = summ + n;
-  if (n <= m)
+  for (int i = 0; i < array.GetLength(0); i++)
   {
-    Console.Write($"Сумма элементов= {summ} ");
-    return;
+    for (int j = 0; j < array.GetLength(1); j++)
+    {
+      for (int k = 0; k < array.GetLength(1) - 1; k++)
+      {
+        if (array[i, k] < array[i, k + 1])
+        {
+          int temp = array[i, k + 1];
+          array[i, k + 1] = array[i, k];
+          array[i, k] = temp;
+        }
+      }
+    }
   }
-  PrintSumm(m, n - 1, summ);
 }
 
-int InputNumbers(string input) 
+int InputNumbers(string input)
 {
   Console.Write(input);
   int output = Convert.ToInt32(Console.ReadLine());
   return output;
 }
 
+void CreateArray(int[,] array)
+{
+  for (int i = 0; i < array.GetLength(0); i++)
+  {
+    for (int j = 0; j < array.GetLength(1); j++)
+    {
+      array[i, j] = new Random().Next(range);
+    }
+  }
+}
 
-// Задача 68
+void WriteArray(int[,] array)
+{
+  for (int i = 0; i < array.GetLength(0); i++)
+  {
+    for (int j = 0; j < array.GetLength(1); j++)
+    {
+      Console.Write(array[i, j] + " ");
+    }
+    Console.WriteLine();
+  }
+}
+
+*/
+
+/*
+// Задача 56:
 
 
+Console.WriteLine($"\nВведите размер массива m x n и диапазон случайных значений:");
 int m = InputNumbers("Введите m: ");
 int n = InputNumbers("Введите n: ");
+int range = InputNumbers("Введите диапазон: от 1 до ");
 
-int functionAkkerman = Ack(m, n);
+int[,] array = new int[m, n];
+CreateArray(array);
+WriteArray(array);
 
-Console.Write($"Функция Аккермана = {functionAkkerman} ");
-
-int Ack(int m, int n)
+int minSumLine = 0;
+int sumLine = SumLineElements(array, 0);
+for (int i = 1; i < array.GetLength(0); i++)
 {
-  if (m == 0) return n + 1;
-  else if (n == 0) return Ack(m - 1, 1);
-  else return Ack(m - 1, Ack(m, n - 1));
+  int tempSumLine = SumLineElements(array, i);
+  if (sumLine > tempSumLine)
+  {
+    sumLine = tempSumLine;
+    minSumLine = i;
+  }
 }
 
-int InputNumbers(string input) 
+Console.WriteLine($"\n{minSumLine+1} - строкa с наименьшей суммой ({sumLine}) элементов ");
+
+
+int SumLineElements(int[,] array, int i)
+{
+  int sumLine = array[i,0];
+  for (int j = 1; j < array.GetLength(1); j++)
+  {
+    sumLine += array[i,j];
+  }
+  return sumLine;
+}
+
+int InputNumbers(string input)
 {
   Console.Write(input);
   int output = Convert.ToInt32(Console.ReadLine());
   return output;
 }
 
+void CreateArray(int[,] array)
+{
+  for (int i = 0; i < array.GetLength(0); i++)
+  {
+    for (int j = 0; j < array.GetLength(1); j++)
+    {
+      array[i, j] = new Random().Next(range);
+    }
+  }
+}
+
+void WriteArray (int[,] array)
+{
+  for (int i = 0; i < array.GetLength(0); i++)
+  {
+    for (int j = 0; j < array.GetLength(1); j++)
+    {
+      Console.Write(array[i,j] + " ");
+    }
+    Console.WriteLine();
+  }
+}
+
+
+
+
+
+
+// Задача 58
+
+Console.WriteLine($"\nВведите размеры матриц и диапазон случайных значений:");
+int m = InputNumbers("Введите число строк 1-й матрицы: ");
+int n = InputNumbers("Введите число столбцов 1-й матрицы (и строк 2-й): ");
+int p = InputNumbers("Введите число столбцов 2-й матрицы: ");
+int range = InputNumbers("Введите диапазон случайных чисел: от 1 до ");
+
+int[,] firstMartrix = new int[m, n];
+CreateArray(firstMartrix);
+Console.WriteLine($"\nПервая матрица:");
+WriteArray(firstMartrix);
+
+int[,] secomdMartrix = new int[n, p];
+CreateArray(secomdMartrix);
+Console.WriteLine($"\nВторая матрица:");
+WriteArray(secomdMartrix);
+
+int[,] resultMatrix = new int[m,p];
+
+MultiplyMatrix(firstMartrix, secomdMartrix, resultMatrix);
+Console.WriteLine($"\nПроизведение первой и второй матриц:");
+WriteArray(resultMatrix);
+
+void MultiplyMatrix(int[,] firstMartrix, int[,] secomdMartrix, int[,] resultMatrix)
+{
+  for (int i = 0; i < resultMatrix.GetLength(0); i++)
+  {
+    for (int j = 0; j < resultMatrix.GetLength(1); j++)
+    {
+      int sum = 0;
+      for (int k = 0; k < firstMartrix.GetLength(1); k++)
+      {
+        sum += firstMartrix[i,k] * secomdMartrix[k,j];
+      }
+      resultMatrix[i,j] = sum;
+    }
+  }
+}
+
+int InputNumbers(string input)
+{
+  Console.Write(input);
+  int output = Convert.ToInt32(Console.ReadLine());
+  return output;
+}
+
+void CreateArray(int[,] array)
+{
+  for (int i = 0; i < array.GetLength(0); i++)
+  {
+    for (int j = 0; j < array.GetLength(1); j++)
+    {
+      array[i, j] = new Random().Next(range);
+    }
+  }
+}
+
+void WriteArray (int[,] array)
+{
+  for (int i = 0; i < array.GetLength(0); i++)
+  {
+    for (int j = 0; j < array.GetLength(1); j++)
+    {
+      Console.Write(array[i,j] + " ");
+    }
+    Console.WriteLine();
+  }
+}
+
+
+
+
+
+
+
+// Задача 60
+
+
+int x = InputNumbers("Введите X: ");
+int y = InputNumbers("Введите Y: ");
+int z = InputNumbers("Введите Z: ");
+Console.WriteLine($"");
+
+int[,,] array3D = new int[x, y, z];
+CreateArray(array3D);
+WriteArray(array3D);
+
+int InputNumbers(string input)
+{
+  Console.Write(input);
+  int output = Convert.ToInt32(Console.ReadLine());
+  return output;
+}
+
+void WriteArray (int[,,] array3D)
+{
+  for (int i = 0; i < array3D.GetLength(0); i++)
+  {
+    for (int j = 0; j < array3D.GetLength(1); j++)
+    {
+      Console.Write($"X({i}) Y({j}) ");
+      for (int k = 0; k < array3D.GetLength(2); k++)
+      {
+        Console.Write( $"Z({k})={array3D[i,j,k]}; ");
+      }
+      Console.WriteLine();
+    }
+    Console.WriteLine();
+  }
+}
+
+void CreateArray(int[,,] array3D)
+{
+  int[] temp = new int[array3D.GetLength(0) * array3D.GetLength(1) * array3D.GetLength(2)];
+  int  number;
+  for (int i = 0; i < temp.GetLength(0); i++)
+  {
+    temp[i] = new Random().Next(10, 100);
+    number = temp[i];
+    if (i >= 1)
+    {
+      for (int j = 0; j < i; j++)
+      {
+        while (temp[i] == temp[j])
+        {
+          temp[i] = new Random().Next(10, 100);
+          j = 0;
+          number = temp[i];
+        }
+          number = temp[i];
+      }
+    }
+  }
+  int count = 0; 
+  for (int x = 0; x < array3D.GetLength(0); x++)
+  {
+    for (int y = 0; y < array3D.GetLength(1); y++)
+    {
+      for (int z = 0; z < array3D.GetLength(2); z++)
+      {
+        array3D[x, y, z] = temp[count];
+        count++;
+      }
+    }
+  }
+}
+
+
+
+
+
+// Задача 62
+
+int n = 4;
+int[,] sqareMatrix = new int[n, n];
+
+int temp = 1;
+int i = 0;
+int j = 0;
+
+while (temp <= sqareMatrix.GetLength(0) * sqareMatrix.GetLength(1))
+{
+  sqareMatrix[i, j] = temp;
+  temp++;
+  if (i <= j + 1 && i + j < sqareMatrix.GetLength(1) - 1)
+    j++;
+  else if (i < j && i + j >= sqareMatrix.GetLength(0) - 1)
+    i++;
+  else if (i >= j && i + j > sqareMatrix.GetLength(1) - 1)
+    j--;
+  else
+    i--;
+}
+
+WriteArray(sqareMatrix);
+
+void WriteArray (int[,] array)
+{
+  for (int i = 0; i < array.GetLength(0); i++)
+  {
+    for (int j = 0; j < array.GetLength(1); j++)
+    {
+      if (array[i,j] / 10 <= 0)
+      Console.Write($" {array[i,j]} ");
+
+      else Console.Write($"{array[i,j]} ");
+    }
+    Console.WriteLine();
+  }
+}
 */
