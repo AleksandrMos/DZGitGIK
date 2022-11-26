@@ -1,83 +1,83 @@
 ﻿
+/*
+// Задача 64
 
-/*Задача №47*/
-
-// double [,] array = new double [3, 4];
-//  System.Console.WriteLine("---------------------------");
-
-// for (int i = 0 ; i < 3 ; i++)
-// {
-
-//   for (int j = 0 ; j < 4 ; j++)
-//  {
-//      array [i,j] = new Random().Next(-9,10)+new Random().NextDouble();
-//      array [i,j] = Math.Round(array[i,j],1);
-//      System.Console.Write(array[i,j]+" "); 
-//  }
-
-//  System.Console.WriteLine( );
-// }
-// System.Console.WriteLine("---------------------------");
+int n = InputNumbers("Введите n: ");
+int count = 2;
+PrintNumber(n, count);
 
 
-/*Задача №50*/
+void PrintNumber(int n, int count)
+{
+  if (count > n) return;
+  PrintNumber(n, count + 1);
+  Console.Write(count + ", ");
+}
 
-// Console.WriteLine("Введите номер строки:");
-// int c = Convert.ToInt32(Console.ReadLine());
-
-// Console.WriteLine("Введите номер столбца:");
-// int b = Convert.ToInt32(Console.ReadLine());
-
-//  System.Console.WriteLine( );
-
-// double [,] array = new double[5, 7];
-
-// for (int i = 0 ; i < 5 ; i++)
-// {
-//   for (int j = 0 ; j < 7 ; j++)
-//  {
-//      array [i,j] = new Random().Next(-10,10);
-//     System.Console.Write(array[i,j]+"\t"); 
-//  }
-//  System.Console.WriteLine( );
-// }
+int InputNumbers(string input) 
+{
+  Console.Write(input);
+  int output = Convert.ToInt32(Console.ReadLine());
+  return output;
+}
 
 
-//  if ((c<=5)||(b<=7))
-//     {
-//      System.Console.WriteLine( "Такое число есть в сгенерированном массиве!");
-    
-//     }
-//     else
-//     {
-//       System.Console.WriteLine( "Такого числа нет в сгенерированном массиве!");
-//     }
-//  System.Console.WriteLine( );
+// Задача 66
 
 
-/*Задача №52*/
+int m = InputNumbers("Введите m: ");
+int n = InputNumbers("Введите n: ");
+int temp = m;
 
-// int [,] array  = new int[3, 4];
+if (m > n) 
+{
+  m = n; 
+  n = temp;
+}
 
-//  for (int i = 0 ; i < 3 ; i++)
-//  {
-//    for (int j = 0 ; j < 4 ; j++)
-//     {
-//      array [i,j] = new Random().Next(0,41);
-//      System.Console.Write(array[i,j]+"\t"); 
-//     }
-//     System.Console.WriteLine();
-//  }
-// System.Console.WriteLine( );
+PrintSumm(m, n, temp=0);
 
-// double [] vid = new double[array.GetLength(0)];
+void PrintSumm(int m, int n, int summ)
+{
+  summ = summ + n;
+  if (n <= m)
+  {
+    Console.Write($"Сумма элементов= {summ} ");
+    return;
+  }
+  PrintSumm(m, n - 1, summ);
+}
 
-//  for (int j = 0 ; j < array.GetLength(0) ; j++)
-//  {
-//     vid[j]=0;
-//    for (int i = 0 ; i < array.GetLength(1) ; i++)
-//     {
-//             vid[j]+=array[i,j];
-//     }
-//     System.Console.WriteLine($"{vid[j]/4}" );
-//  }
+int InputNumbers(string input) 
+{
+  Console.Write(input);
+  int output = Convert.ToInt32(Console.ReadLine());
+  return output;
+}
+
+
+// Задача 68
+
+
+int m = InputNumbers("Введите m: ");
+int n = InputNumbers("Введите n: ");
+
+int functionAkkerman = Ack(m, n);
+
+Console.Write($"Функция Аккермана = {functionAkkerman} ");
+
+int Ack(int m, int n)
+{
+  if (m == 0) return n + 1;
+  else if (n == 0) return Ack(m - 1, 1);
+  else return Ack(m - 1, Ack(m, n - 1));
+}
+
+int InputNumbers(string input) 
+{
+  Console.Write(input);
+  int output = Convert.ToInt32(Console.ReadLine());
+  return output;
+}
+
+*/
