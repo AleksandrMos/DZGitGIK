@@ -1,83 +1,79 @@
-﻿
-/*
-// Задача 64
-
-int n = InputNumbers("Введите n: ");
-int count = 2;
-PrintNumber(n, count);
+Решение
 
 
-void PrintNumber(int n, int count)
+
+Commands();
+string[] array = new string[] {};
+
+string fromUser = ReadInput("Введите команду: ");
+switch (fromUser)
 {
-  if (count > n) return;
-  PrintNumber(n, count + 1);
-  Console.Write(count + ", ");
-}
-
-int InputNumbers(string input) 
-{
-  Console.Write(input);
-  int output = Convert.ToInt32(Console.ReadLine());
-  return output;
-}
-
-
-// Задача 66
-
-
-int m = InputNumbers("Введите m: ");
-int n = InputNumbers("Введите n: ");
-int temp = m;
-
-if (m > n) 
-{
-  m = n; 
-  n = temp;
-}
-
-PrintSumm(m, n, temp=0);
-
-void PrintSumm(int m, int n, int summ)
-{
-  summ = summ + n;
-  if (n <= m)
-  {
-    Console.Write($"Сумма элементов= {summ} ");
-    return;
-  }
-  PrintSumm(m, n - 1, summ);
-}
-
-int InputNumbers(string input) 
-{
-  Console.Write(input);
-  int output = Convert.ToInt32(Console.ReadLine());
-  return output;
+    case "1":
+        array = new string[] { "Hello", "2", "world", ":-)" };
+        break;
+    case "2":
+        array = new string[] { "1234", "1567", "-2", "computer science" };
+        break;
+    case "3":
+        array = new string[] { "Russia", "Denmark", "Kazan" };
+        break;
+    default:
+        Console.WriteLine($"{fromUser} - Такой команды нет");
+        break;
 }
 
 
-// Задача 68
-
-
-int m = InputNumbers("Введите m: ");
-int n = InputNumbers("Введите n: ");
-
-int functionAkkerman = Ack(m, n);
-
-Console.Write($"Функция Аккермана = {functionAkkerman} ");
-
-int Ack(int m, int n)
+int lenNewArray = 0;
+for (int i = 0; i <= array.Length - 1; i++)
 {
-  if (m == 0) return n + 1;
-  else if (n == 0) return Ack(m - 1, 1);
-  else return Ack(m - 1, Ack(m, n - 1));
+    if (array[i].Length <= 3) lenNewArray++;
 }
 
-int InputNumbers(string input) 
+string[] newArray = new string[lenNewArray];
+int idx = 0;
+
+for (int i = 0; i <= array.Length - 1; i++)
 {
-  Console.Write(input);
-  int output = Convert.ToInt32(Console.ReadLine());
-  return output;
+    if (array[i].Length <= 3)
+    {
+        newArray[idx] = array[i];
+        idx++;
+    }
 }
 
-*/
+PrintArray(array);
+Console.Write("→ ");
+PrintArray(newArray);
+
+
+void Commands()
+{
+    Console.WriteLine();
+    Console.WriteLine("СПИСОК КОМАНД:");
+    Console.WriteLine("1 – использовать массив: [“Hello”, “2”, “world”, “:-)”]");
+    Console.WriteLine("2 – использовать массив: [“1234”, “1567”, “-2”, “computer science”]");
+    Console.WriteLine("3 – использовать массив: [“Russia”, “Denmark”, “Kazan”]");
+    Console.WriteLine();
+}
+
+// Функция ввода
+string ReadInput(string msg)
+{
+    Console.Write(msg);
+    return Console.ReadLine();
+}
+
+//  Функция вывода массива в терминал
+void PrintArray(string[] array)
+{
+    Console.Write("[ ");
+    for (int i = 0; i < array.Length; i++)
+    {
+        Console.Write($"“{array[i]}”, ");
+    }
+    Console.Write("] ");
+}
+Результат вывода в терминал:
+
+image answer in terminal
+
